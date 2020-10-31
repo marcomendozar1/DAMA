@@ -1,0 +1,8 @@
+{
+  "appId": "com.example.municipios",
+  "appName": "Municipios",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "src",
+  "cordova": {}
+}

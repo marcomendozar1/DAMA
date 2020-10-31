@@ -1,0 +1,117 @@
+<div class="card">
+  <div class="card-header">
+    Alta Municipio
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="agregar()">
+      <div class="row">
+        <div class="col md-4">
+          <label for="clave">Clave IGECEM:</label>
+          <input type="text" id=clave name="clave" class="form-control" [(ngModel)]="item.igecem">
+        </div>
+        <div class="col-md-4">
+          <label for="municipio">Municipio:</label>
+          <input type="text" id="municipio" name="municipio" class="form-control" [(ngModel)]="item.nombre">
+        </div>
+        <div class="col-md-4">
+          <label for="cabecera">Cabecera Municipal:</label>
+          <input type="text" id="cabecera" name="cabecera" class="form-control" [(ngModel)]="item.cabecera">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <label for="clima">Clima:</label>
+          <input type="text" id="clima" name="clima" class="form-control" [(ngModel)]="item.clima">
+        </div>
+        <div class="col-md-4">
+          <label for="volcanes">Poblacion:</label>
+          <input type="text" id="poblacion" name="poblacion" class="form-control" [(ngModel)]="item.poblacion">
+        </div>
+        <div class="col-md-4">
+          <label for="superficie">Superficie:</label>
+          <input type="text" id="superficie" name="superficie" class="form-control" [(ngModel)]="item.superficie">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <label for="latitud">Latitud:</label>
+          <input type="text" id="latitud" name="latitud" class="form-control" [(ngModel)]="item.latitud">
+        </div>
+        <div class="col-md-4">
+          <label for="longitud">Longitud:</label>
+          <input type="text" id="longitud" name="longitud" class="form-control" [(ngModel)]="item.longitud">
+        </div>
+        <div class="col-md-4">
+          <label for="altitud">Altitud:</label>
+          <input type="text" id="altitud" name="altitud" class="form-control" [(ngModel)]="item.altitud">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <label for="significado">Significado:</label>
+          <textarea id="significado" name="significado" cols="30" rows="5" class="form-control"
+            [(ngModel)]="item.significado"></textarea>
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="derrumbes">Derrumbes:</label>
+              <select name="derrumbres" id="derrumbres" class="custom-select" [(ngModel)]="item.derrumbesCheck">
+                <option value="0" selected disabled>Seleccione una Opcion</option>
+                <option value="TRUE">Si</option>
+                <option value="FALSE">No</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="deslaves">Deslaves:</label>
+              <select name="deslaves" id="deslaves" class="custom-select" [(ngModel)]="item.deslaveCheck">
+                <option value="0" selected disabled>Seleccione una Opcion</option>
+                <option value="TRUE">Si</option>
+                <option value="FALSE">No</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="incendio">Incendios:</label>
+              <select name="incendios" id="incendios" class="custom-select" [(ngModel)]="item.incendioCheck">
+                <option value="0" selected disabled>Seleccione una Opcion</option>
+                <option value="TRUE">Si</option>
+                <option value="FALSE">No</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="inundaciones">Inundaciones:</label>
+              <select name="inundaciones" id="inundaciones" class="custom-select" [(ngModel)]="item.inundacionCheck">
+                <option value="0" selected disabled>Seleccione una Opcion</option>
+                <option value="TRUE">Si</option>
+                <option value="FALSE">No</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="sismo">Sismo:</label>
+              <select name="sismo" id="sismo" class="custom-select" [(ngModel)]="item.sismoCheck">
+                <option value="0" selected disabled>Seleccione una Opcion</option>
+                <option value="TRUE">Si</option>
+                <option value="FALSE">No</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="volcanes">Volcanes:</label>
+              <select name="volcanes" id="volcanes" class="custom-select" [(ngModel)]="item.vocanesCheck">
+                <option value="0" selected disabled>Seleccione una Opcion</option>
+                <option value="TRUE">Si</option>
+                <option value="FALSE">No</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="float-right">
+        <button class="btn btn-primary mt-3" type="submit">Agregar</button>
+      </div>
+    </form>
+  </div>
+</div>

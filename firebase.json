@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "DAMA-CRUD",
+      "public": "dist/DAMA-CRUD",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

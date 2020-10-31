@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-65417": {
+      "hosting": {
+        "DAMA-CRUD": [
+          "angular-65417"
+        ]
+      }
+    }
+  }
+}

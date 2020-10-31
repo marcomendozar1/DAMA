@@ -1,0 +1,169 @@
+<div class="content">
+  <div class="alert alert-warning info" role="alert" *ngFor="let item of items">
+    <div class="busqueda" style="size: 200px;">{{item.nombre}} - {{item.igecem}}
+      <div class="float-right mx-3 delete" (click)="eliminar(item)">
+        <fa-icon [icon]="faTrash"></fa-icon>
+      </div>
+      <div class="float-right mx-3 update" (click)="editar(item,true)" data-toggle="modal" data-target="#exampleModal">
+        <fa-icon [icon]="faPencilAlt"></fa-icon>
+      </div>
+      <div class="float-right mx-3 look" (click)="editar(item,false)" data-toggle="modal" data-target="#exampleModal">
+        <fa-icon [icon]="faEye"></fa-icon>
+      </div>
+    </div>
+    <div class="filtro" style="display: none;">
+      <span class="volcanes">{{item.vocanesCheck}}</span>
+      <span class="sismos">{{item.sismoCheck}}</span>
+      <span class="inundaciones">{{item.inundacionCheck}}</span>
+      <span class="incendios">{{item.incendioCheck}}</span>
+      <span class="deslaves">{{item.deslaveCheck}}</span>
+      <span class="derrumbes">{{item.derrumbesCheck}}</span>
+    </div>
+    <div class="coordenadas" style="display: none;">
+      <span class="latitud">{{item.latitud}}</span>
+      <span class="longitud">{{item.longitud}}</span>
+    </div>
+  </div>
+  <div>
+    <input type="text" id="status" value="no-status" hidden>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{editarItem.nombre}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="agregarItemEditado()">
+          <div class="row">
+            <div class="col md-4">
+              <label for="clave">Clave IGECEM:</label>
+              <input type="text" id="claveU" name="clave" class="form-control look2" [(ngModel)]="editarItem.igecem">
+            </div>
+            <div class="col-md-4">
+              <label for="municipio">Municipio:</label>
+              <input type="text" id="municipioU" name="municipio" class="form-control look2"
+                [(ngModel)]="editarItem.nombre">
+            </div>
+            <div class="col-md-4">
+              <label for="cabecera">Cabecera Municipal:</label>
+              <input type="text" id="cabeceraU" name="cabecera" class="form-control look2"
+                [(ngModel)]="editarItem.cabecera">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label for="clima">Clima:</label>
+              <input type="text" id="climaU" name="clima" class="form-control look2" [(ngModel)]="editarItem.clima">
+            </div>
+            <div class="col-md-4">
+              <label for="volcanes">Poblacion:</label>
+              <input type="text" id="poblacionU" name="poblacion" class="form-control look2"
+                [(ngModel)]="editarItem.poblacion">
+            </div>
+            <div class="col-md-4">
+              <label for="superficie">Superficie:</label>
+              <input type="text" id="superficieU" name="superficie" class="form-control look2"
+                [(ngModel)]="editarItem.superficie">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label for="latitud">Latitud:</label>
+              <input type="text" id="latitudU" name="latitud" class="form-control look2"
+                [(ngModel)]="editarItem.latitud">
+            </div>
+            <div class="col-md-4">
+              <label for="longitud">Longitud:</label>
+              <input type="text" id="longitudU" name="longitud" class="form-control look2"
+                [(ngModel)]="editarItem.longitud">
+            </div>
+            <div class="col-md-4">
+              <label for="altitud">Altitud:</label>
+              <input type="text" id="altitudU" name="altitud" class="form-control look2"
+                [(ngModel)]="editarItem.altitud">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <label for="significado">Significado:</label>
+              <textarea id="significadoU" name="significado" cols="30" rows="5" class="form-control look2"
+                [(ngModel)]="editarItem.significado"></textarea>
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="derrumbes">Derrumbes:</label>
+                  <select name="derrumbres" id="derrumbresU" class="custom-select look2"
+                    [(ngModel)]="editarItem.derrumbesCheck">
+                    <option value="0" selected disabled>Seleccione una Opcion</option>
+                    <option value="TRUE">Si</option>
+                    <option value="FALSE">No</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="deslaves">Deslaves:</label>
+                  <select name="deslaves" id="deslavesU" class="custom-select look2"
+                    [(ngModel)]="editarItem.deslaveCheck">
+                    <option value="0" selected disabled>Seleccione una Opcion</option>
+                    <option value="TRUE">Si</option>
+                    <option value="FALSE">No</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="incendio">Incendios:</label>
+                  <select name="incendios" id="incendiosU" class="custom-select look2"
+                    [(ngModel)]="editarItem.incendioCheck">
+                    <option value="0" selected disabled>Seleccione una Opcion</option>
+                    <option value="TRUE">Si</option>
+                    <option value="FALSE">No</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="inundaciones">Inundaciones:</label>
+                  <select name="inundaciones" id="inundacionesU" class="custom-select look2"
+                    [(ngModel)]="editarItem.inundacionCheck">
+                    <option value="0" selected disabled>Seleccione una Opcion</option>
+                    <option value="TRUE">Si</option>
+                    <option value="FALSE">No</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="sismo">Sismo:</label>
+                  <select name="sismo" id="sismoU" class="custom-select look2" [(ngModel)]="editarItem.sismoCheck">
+                    <option value="0" selected disabled>Seleccione una Opcion</option>
+                    <option value="TRUE">Si</option>
+                    <option value="FALSE">No</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="volcanes">Volcanes:</label>
+                  <select name="volcanes" id="volcanesU" class="custom-select look2"
+                    [(ngModel)]="editarItem.vocanesCheck">
+                    <option value="0" selected disabled>Seleccione una Opcion</option>
+                    <option value="TRUE">Si</option>
+                    <option value="FALSE">No</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="float-right">
+            <button type="button" class="btn btn-secondary mt-3 mx-3" data-dismiss="modal">Close</button>
+            <button class="btn btn-primary mt-3" type="submit" id="btnUpdate">Editar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

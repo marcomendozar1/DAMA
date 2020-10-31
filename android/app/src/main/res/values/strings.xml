@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Municipios</string>
+    <string name="title_activity_main">Municipios</string>
+    <string name="package_name">com.example.municipios</string>
+    <string name="custom_url_scheme">com.example.municipios</string>
+</resources>
